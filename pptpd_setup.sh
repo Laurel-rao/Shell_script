@@ -37,7 +37,7 @@ iptables -A INPUT -p UDP --dport 53 -j ACCEPT
 iptables -A INPUT -p TCP --dport 1723 -j ACCEPT
 iptables -A INPUT -p TCP --dport 47 -j ACCEPT
 iptables -A INPUT -p gre -j ACCEPT
-iptables -t nat -A POSTROUTING -s 192.168.0.1/24 -j SNAT --to-source 165.23.31.11
+iptables -t nat -A POSTROUTING -s 192.168.0.1/24 -j SNAT --to-source $ip
 iptables-save > ./iptables.conf
 
 systemctl enable pptpd
